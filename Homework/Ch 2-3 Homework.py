@@ -7,11 +7,11 @@ subtotal, gratuity = eval(input("Enter the subtotal and a grauity rate: "))
 gratuity_calc = subtotal * (gratuity / 100)
 subtotal_calc = subtotal + gratuity_calc
 print("The gratuity is ",gratuity_calc,"and the total is",subtotal_calc)
-
+'''
 Results:
 Enter the subtotal and a grauity rate: 15.69, 15
 The gratuity is  2.3535 and the total is 18.043499999999998
-
+'''
 # Exercise 2.13
 integer = eval(input("Enter an integer: "))
 d1 = integer // 1000
