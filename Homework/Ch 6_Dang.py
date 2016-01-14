@@ -103,3 +103,32 @@ Enter n: 7
 1 0 1 0 0 0 1
 
 '''
+
+# Exercise 6.16
+def numberOfDaysInAYear(year):
+	n = 0
+	isLeapYear = (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)
+	if isLeapYear == True:
+		n +=366
+	else:
+		n += 365
+	return n
+
+print("Year       Days")
+for k in range(2010,2021):
+	print(k,"     ",numberOfDaysInAYear(k))
+
+''' Results:
+Year       Days
+2010       365
+2011       365
+2012       366
+2013       365
+2014       365
+2015       365
+2016       366
+2017       365
+2018       365
+2019       365
+2020       366
+'''
