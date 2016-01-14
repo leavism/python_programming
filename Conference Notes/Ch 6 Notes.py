@@ -90,4 +90,24 @@ def main():
 
 main()
 
-# Positional and Keyword Arguments
+# 6.5 Positional and Keyword Arguments
+''' There are two kinds of arguments: positional arguments and keyword arguments. Using positional arguments requires that
+the arguments be passed in the same order as their respective parameteres in the function header. Example: '''
+
+def nPrintln(message, n):
+	for i in range(n):
+		print(message)
+''' Use nPrintln("a", 3) to print a three times. the nPrintln("a", 3) statement passes a to message and 3 to n, and prints
+a three times. When we call a function like this, it is said to use positional arguments. '''
+
+''' Call a function using keyword arguments, passing each argument in the form name = value. For example, nPrintln(n = 5, message = "good")
+pass 5 to n and "good" to message. The arguments can appear in any order using keyword arguments. '''
+
+def f(p1, p2, p3):
+
+''' You can invoke it by using '''
+ f(30, p2 = 4, p3 = 10)
+ 
+ ''' However, it would be wrong to invoke it using '''
+ f(30, p2 = 4, 10)
+ ''' because the positional argument 10 appears after the keywod arguments p2 = 4 '''
