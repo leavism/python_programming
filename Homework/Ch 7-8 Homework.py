@@ -1,4 +1,4 @@
-'''
+
 # Exercise 7.1
 from rectangle import rectangle
 
@@ -9,6 +9,11 @@ def main():
 	print("The area of a rectangle with the width of",rect2.getWidth(),"and height of",rect2.getHeight(),"is",rect2.getArea(),"and the perieter is",rect2.getPerimeter())
 
 main()
+
+''' Results:
+The area of a rectangle with the width of 4 and height of 40 is 160 and the perimeter is 88
+The area of a rectangle with the width of 3.5 and height of 35.7 is 124.95000000000002 and the perieter is 78.4
+'''
 
 # Exercise 7.3
 from account import account
@@ -26,7 +31,16 @@ def creator():
 	print("Monthly Interest Rate: ",creator1.getMonthlyInterestRate())
 	print("Monthly Interest: ",creator1.getMonthlyInterest())
 creator()
+
+'''Results:
+ID:  1122
+Traceback (most recent call last):
+Balance:  23000
+Annual Interest Rate:  0.045
+Monthly Interest Rate:  0.00375
+Monthly Interest:  86.25
 '''
+
 # Exercise 8.4
 def count(s, ch):
 	n  = 0 
@@ -39,6 +53,7 @@ string = input("Enter a string: ").strip()
 search = input("Enter a character: ").strip()
 
 count(string, search)
+
 ''' Results:
 Enter a string: asdfaaa
 Enter a character: a
