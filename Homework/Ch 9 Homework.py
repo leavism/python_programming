@@ -73,10 +73,10 @@ class geometricFig:
 
         frame = Frame(window)
         frame.pack()
-        self.v1 = IntVar()
-        rbRect = Radiobutton(frame, text = "Rectangle", command = self.displayRect, variable = self.v1, value = "1")
-        rbOval = Radiobutton(frame, text = "Oval", command = self.displayOval, variable = self.v1, value = "2")
-        self.v2 = IntVar()
+        self.v1 = StringVar()
+        rbRect = Radiobutton(frame, text = "Rectangle", command = self.displayRect, variable = self.v1, value = '1')
+        rbOval = Radiobutton(frame, text = "Oval", command = self.displayOval, variable = self.v1, value = '2')
+        self.v2 = StringVar()
         cbtFill = Checkbutton(frame, text = "Fill", command = self.processFill, variable = self.v2)
 
         rbRect.grid(row = 1, column = 1)
@@ -88,20 +88,14 @@ class geometricFig:
     def displayRect(self):
         self.canvas.delete("rect", "oval")
         self.canvas.create_rectangle(10, 10, 190, 90, tags = "rect")
-        return 1
     def displayOval(self):
         self.canvas.delete("rect", "oval")
         self.canvas.create_oval(10, 10, 190, 90, tags = "oval")
-        return 2
     def processFill(self):
-        if 1:
+        if self.v1.get() == '1':
             self.canvas.delete("rect", "oval")
             self.canvas.create_rectangle(10, 10, 190, 90, tags = "rect", fill = "red")
-        elif 2:
-            self.canvas.delete("rect", "oval")
-            self.canvas.create_oval(10, 10, 190, 90, tags = "oval", fill = "red")
-        else:
-            self.canvas.delete("rect", "oval")
+        elif self.v1.get() == '2':
             self.canvas.create_oval(10, 10, 190, 90, tags = "oval", fill = "red")
             
 geometricFig()
