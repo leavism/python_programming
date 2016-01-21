@@ -46,11 +46,21 @@ class drawGrid():
         window = Tk()
         window.title("8 x 8 Grid")
 
-        self.canvas = Canvas(window, width = 200, height = 200, bg = "white")
+        self.canvas = Canvas(window, width = 195, height = 195, bg = "white")
         self.canvas.pack()
-        
+
         self.canvas.create_line(10, 10, 190, 10, tags = "line1", fill = "red")
-        window.mainloop()
+        self.canvas.create_line(10, 20, 190, 20, tags = "line2", fill = "red")
+        self.canvas.create_line(10, 30, 190, 30, tags = "line3", fill = "red")
+        self.canvas.create_line(10, 40, 190, 40, tags = "line4", fill = "red")
+        self.canvas.create_line(10, 50, 190, 50, tags = "line5", fill = "red")
+        self.canvas.create_line(10, 60, 190, 60, tags = "line6", fill = "red")
+        self.canvas.create_line(10, 70, 190, 70, tags = "line7", fill = "red")
+        self.canvas.create_line(10, 80, 190, 80, tags = "line8", fill = "red")
+
+        self.canvas.create_line(10, 190, 10, 10, tags = "linea1", fill = "red")   
+        
+        
 
         
 drawGrid()
