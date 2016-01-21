@@ -40,6 +40,8 @@ investCalc()
 # 9.7
 
 # 9.3
+from tkinter import *
+
 class geometricFig:
     def __init__(self):
         window = Tk()
@@ -50,15 +52,19 @@ class geometricFig:
 
         frame = Frame(window)
         frame.pack()
-        rbRect = Radiobutton(frame, text = "Rectangle", command = self.displayRect)
-        rbOval = Radiobutton(frame, text = "Oval", command = self.displayOval)
-        
-    def displayRect(self):
-        self.canvas.create_rectangle(10, 10, 190, 90, tags = "rect")
-    def dispalyOval(self):
-        self.canvas.create_oval(10, 10, 190, 90, tags = "oval")
+        self.v1 = IntVar()
+        rbRect = Radiobutton(frame, text = "Rectangle", command = self.displayRect, variable = self.v1, value = 1)
+        rbOval = Radiobutton(frame, text = "Oval", command = self.displayOval, variable = self.v1, value = 2)
+
+        rbRect.grid(
         
         window.mainloop()
     
+    def displayRect(self):
+        self.canvas.create_rectangle(10, 10, 190, 90)
+    def displayOval(self):
+        self.canvas.create_oval(10, 10, 190, 90)
+        
+
         
 geometricFig()
