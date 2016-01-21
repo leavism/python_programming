@@ -56,14 +56,16 @@ class geometricFig:
         rbRect = Radiobutton(frame, text = "Rectangle", command = self.displayRect, variable = self.v1, value = 1)
         rbOval = Radiobutton(frame, text = "Oval", command = self.displayOval, variable = self.v1, value = 2)
 
-        rbRect.grid(
+        rbRect.grid(row = 1, column = 1)
+        rbOval.grid(row = 1, column = 2)
         
         window.mainloop()
     
     def displayRect(self):
-        self.canvas.create_rectangle(10, 10, 190, 90)
+        self.canvas.delete("rect", "oval")
+        self.canvas.create_rectangle(10, 10, 190, 90, tags = "rect")
     def displayOval(self):
-        self.canvas.create_oval(10, 10, 190, 90)
+        self.canvas.create_oval(10, 10, 190, 90, tags = "oval")
         
 
         
