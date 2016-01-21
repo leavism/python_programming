@@ -48,7 +48,8 @@ class drawGrid():
 
         self.canvas = Canvas(window, width = 200, height = 200, bg = "white")
         self.canvas.pack()
-        self.canvas.create_line(10, 10, 180, 90, tags = "line1")
+        
+        self.canvas.create_line(10, 10, 190, 10, tags = "line1", fill = "red")
         window.mainloop()
 
         
