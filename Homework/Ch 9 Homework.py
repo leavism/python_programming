@@ -33,12 +33,12 @@ class investCalc:
         self.futureValueVar.set(format(calculate, "10.2f"))
                                 
     def getCalculate(self, investmentAmmount, years, annualInterestRate):
-        calculate = investmentAmmount * (1 + annualInterestRate / 12) ** (years * 12)
+        calculate = investmentAmmount * (1 + annualInterestRate / 1200) ** (years * 12)
         return calculate
 investCalc()
 '''
 # 9.7
-'''
+
 from tkinter import *
 
 class drawGrid():
@@ -46,21 +46,17 @@ class drawGrid():
         window = Tk()
         window.title("8 x 8 Grid")
 
-        self.canvas = Canvas(window, width = 100, height = 100, bg = "white")
-        
-
-        grid(row = 1, column = 1)
+        self.canvas = Canvas(window, width = 200, height = 200, bg = "white")
         self.canvas.pack()
-        
+        self.canvas.create_line(10, 10, 180, 90, tags = "line1")
         window.mainloop()
-    def displayln1(self):
-        self.canvas.create_line(10, 10, 190, 90, fill = "red")
+
         
 drawGrid()
-'''
+
 # 9.3
 
-
+'''
 from tkinter import *
 
 class geometricFig:
@@ -96,7 +92,11 @@ class geometricFig:
             self.canvas.delete("rect", "oval")
             self.canvas.create_rectangle(10, 10, 190, 90, tags = "rect", fill = "red")
         elif self.v1.get() == '2':
+            self.canvas.delete("rect", "oval")
             self.canvas.create_oval(10, 10, 190, 90, tags = "oval", fill = "red")
+        else:
+            self.canvas.delete("rect", "oval")
             
 geometricFig()
 
+'''
