@@ -38,8 +38,29 @@ class investCalc:
 investCalc()
 '''
 # 9.7
+'''
+from tkinter import *
 
+class drawGrid():
+    def __init__(self):
+        window = Tk()
+        window.title("8 x 8 Grid")
+
+        self.canvas = Canvas(window, width = 100, height = 100, bg = "white")
+        
+
+        grid(row = 1, column = 1)
+        self.canvas.pack()
+        
+        window.mainloop()
+    def displayln1(self):
+        self.canvas.create_line(10, 10, 190, 90, fill = "red")
+        
+drawGrid()
+'''
 # 9.3
+
+
 from tkinter import *
 
 class geometricFig:
@@ -53,20 +74,35 @@ class geometricFig:
         frame = Frame(window)
         frame.pack()
         self.v1 = IntVar()
-        rbRect = Radiobutton(frame, text = "Rectangle", command = self.displayRect, variable = self.v1, value = 1)
-        rbOval = Radiobutton(frame, text = "Oval", command = self.displayOval, variable = self.v1, value = 2)
+        rbRect = Radiobutton(frame, text = "Rectangle", command = self.displayRect, variable = self.v1, value = "1")
+        rbOval = Radiobutton(frame, text = "Oval", command = self.displayOval, variable = self.v1, value = "2")
+        self.v2 = IntVar()
+        cbtFill = Checkbutton(frame, text = "Fill", command = self.processFill, variable = self.v2)
 
         rbRect.grid(row = 1, column = 1)
         rbOval.grid(row = 1, column = 2)
+        cbtFill.grid(row = 1, column = 3)
         
         window.mainloop()
     
     def displayRect(self):
         self.canvas.delete("rect", "oval")
         self.canvas.create_rectangle(10, 10, 190, 90, tags = "rect")
+        return 1
     def displayOval(self):
+        self.canvas.delete("rect", "oval")
         self.canvas.create_oval(10, 10, 190, 90, tags = "oval")
-        
-
-        
+        return 2
+    def processFill(self):
+        if 1:
+            self.canvas.delete("rect", "oval")
+            self.canvas.create_rectangle(10, 10, 190, 90, tags = "rect", fill = "red")
+        elif 2:
+            self.canvas.delete("rect", "oval")
+            self.canvas.create_oval(10, 10, 190, 90, tags = "oval", fill = "red")
+        else:
+            self.canvas.delete("rect", "oval")
+            self.canvas.create_oval(10, 10, 190, 90, tags = "oval", fill = "red")
+            
 geometricFig()
+
