@@ -1,4 +1,5 @@
 # 9.2
+'''
 from tkinter import *
 
 class investCalc:
@@ -35,6 +36,7 @@ class investCalc:
         calculate = investmentAmmount * (1 + annualInterestRate / 12) ** (years * 12)
         return calculate
 investCalc()
+'''
 # 9.7
 
 # 9.3
@@ -48,8 +50,15 @@ class geometricFig:
 
         frame = Frame(window)
         frame.pack()
-        rbRect = Radiobutton(frame, text = "Rectangle")
-        rbOval = Radiobutton(frame, text = "Oval")
+        rbRect = Radiobutton(frame, text = "Rectangle", command = self.displayRect)
+        rbOval = Radiobutton(frame, text = "Oval", command = self.displayOval)
+        
+    def displayRect(self):
+        self.canvas.create_rectangle(10, 10, 190, 90, tags = "rect")
+    def dispalyOval(self):
+        self.canvas.create_oval(10, 10, 190, 90, tags = "oval")
+        
         window.mainloop()
+    
         
 geometricFig()
