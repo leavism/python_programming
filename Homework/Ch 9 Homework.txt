@@ -50,13 +50,13 @@ class drawGrid():
         self.canvas.pack()
 
 
-        self.canvas.create_line(10, 20, 90, 20, tags = "line2", fill = "red")
-        self.canvas.create_line(10, 30, 90, 30, tags = "line3", fill = "red")
-        self.canvas.create_line(10, 40, 90, 40, tags = "line4", fill = "red")
-        self.canvas.create_line(10, 50, 90, 50, tags = "line5", fill = "red")
-        self.canvas.create_line(10, 60, 90, 60, tags = "line6", fill = "red")
-        self.canvas.create_line(10, 70, 90, 70, tags = "line7", fill = "red")
-        self.canvas.create_line(10, 80, 90, 80, tags = "line8", fill = "red")
+        self.canvas.create_line(10, 20, 90, 20, tags = "line2", fill = "blue")
+        self.canvas.create_line(10, 30, 90, 30, tags = "line3", fill = "blue")
+        self.canvas.create_line(10, 40, 90, 40, tags = "line4", fill = "blue")
+        self.canvas.create_line(10, 50, 90, 50, tags = "line5", fill = "blue")
+        self.canvas.create_line(10, 60, 90, 60, tags = "line6", fill = "blue")
+        self.canvas.create_line(10, 70, 90, 70, tags = "line7", fill = "blue")
+        self.canvas.create_line(10, 80, 90, 80, tags = "line8", fill = "blue")
 
 
         self.canvas.create_line(20, 90, 20, 10, tags = "linea2", fill = "red")
@@ -87,9 +87,11 @@ class geometricFig:
         frame = Frame(window)
         frame.pack()
         self.v1 = StringVar()
+        self.v1.set("1")
         rbRect = Radiobutton(frame, text = "Rectangle", command = self.displayRect, variable = self.v1, value = '1')
         rbOval = Radiobutton(frame, text = "Oval", command = self.displayOval, variable = self.v1, value = '2')
         self.v2 = StringVar()
+        self.v2.set("0")
         cbtFill = Checkbutton(frame, text = "Fill", command = self.processFill, variable = self.v2)
 
         rbRect.grid(row = 1, column = 1)
@@ -105,14 +107,13 @@ class geometricFig:
         self.canvas.delete("rect", "oval")
         self.canvas.create_oval(10, 10, 190, 90, tags = "oval")
     def processFill(self):
-        if self.v1.get() == '1':
-            self.canvas.delete("rect", "oval")
-            self.canvas.create_rectangle(10, 10, 190, 90, tags = "rect", fill = "red")
-        elif self.v1.get() == '2':
-            self.canvas.delete("rect", "oval")
-            self.canvas.create_oval(10, 10, 190, 90, tags = "oval", fill = "red")
+        self.canvas.delete("rect", "oval")
+        color = "white" if self.v2.get() == "0" else "red"
+        if self.v1.get() == "1":
+            self.canvas.create_rectangle(10, 10, 190, 90, tags = "rect", fill = color)
         else:
-            self.canvas.delete("rect", "oval")
+            self.canvas.create_oval(10, 10, 190, 90, tags = "oval", fill = color)            
+
             
 geometricFig()
 
