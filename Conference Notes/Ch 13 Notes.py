@@ -69,13 +69,13 @@ three strings
 To prevent data in an existing file from being erased by accident, you should test to see if the file exists befpre p[emomg ot fpr writhing. The isfile function
 in the os.path module can be used to determine whether a file exists.
 '''
-
+'''
 import os.path
 if os.path.isfile("President.txt"):
     print("President.txt exists")
 else:
     print("No")
-
+'''
 # 13.2.4 Reading Data
 '''
 After a file opened for reading data, you can use the read method to read a specified number of characters or all characters from the file and return
@@ -92,5 +92,39 @@ Programs often need to read all data from a file. Here are two common approaches
 These are good for reading small files. If the file is too big to be stored in the memory, write a loop to read one line at a time, process it, and continue
 reading the next line until it reaches the end.
 '''
+'''
+line = infile.readline() # REad a line
+while line != "":
+    #Process the line here
+    #Read next line
+    line = infile.readline()
 
-line = infile
+'''
+'''
+Python also lets you read all lines by using a for loop:
+'''
+
+# 13.2.7 Writing and Reading Numeric Data
+'''
+To write numbers to a file, you must convert them into strings and then use the write method to the file. In order to read the numbers back correctly,
+separate them with whitespace characters such as " " or \n.
+'''
+
+from random import randint
+
+def main1():
+    # Open file for writing data
+    outfile = open("Numbers.txt", "w")
+    for i in range(10):
+        outfile.write(str(randint(0, 9)) + " ")
+    outfile.close() # Close the file
+        
+    # Open file for reading data
+    infile = open("Numbers.txt", "r")
+    s = infile.read()
+    numbers = [eval(x) for x in s.split()]
+    for number in numbers:
+        print(number, end = " ")
+    infile.close()
+    
+main1()

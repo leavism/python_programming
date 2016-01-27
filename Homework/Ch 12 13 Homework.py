@@ -69,6 +69,7 @@ Filled? False
 '''
 
 # 12.3
+'''
 from account import account
 
 accountlist = [[0],
@@ -83,23 +84,58 @@ accountlist = [[0],
                [9]
                ]
 
+
 class atm(account):
     def __init__(self, id):
         super().__init__()
         self.__id = id
+    def mainMenu(self):
+        print("Main menu \n1: Check balance \n2: Withdraw \n3: Deposit \n4: Exit")
     def accessID(self, id):
         return accountlist[self.__id]
-        print(r"Main menu \n1: Check balance \n2: Withdraw \n3: Deposit \n4: Exit")
+        
 
 def main1():
     idInput = eval(input("Input your ID: "))
     atmSim = atm(idInput)
-    print("Your ID is: ", atmSim.accessID(idInput))
+    print(atmSim.mainMenu())
+    choiceInput = eval(input("Enter a choice:" ))
+        
 
 main1()
 
-
-    
-        
+'''
 
 # 13.3
+
+from random import randint
+
+# Makes the unspecified number of scores
+def makeScores():
+    num = randint(0, 25)
+    outfile = open("scores.txt", "w")
+    for i in range(num):
+        outfile.write(str(randint(0, 9)) + " ")
+    outfile.close()
+
+def processScores():
+    nameFile = input("Enter a filename: ")
+    infile = open(str(nameFile), "r")
+    s = infile.read()
+    numbers = [eval(x) for x in s.split()]
+    i = 0
+    ssplitted = s.split()
+    for number in numbers:
+        i += 1
+    print("There are",i,"scores")
+
+
+    b = sum(numbers)
+    print("The total is ", b)
+
+    average = b / i
+    print("The average is",average)
+    infile.close()
+    
+
+processScores()
