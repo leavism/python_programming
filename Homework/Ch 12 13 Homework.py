@@ -69,20 +69,12 @@ Filled? False
 '''
 
 # 12.3
-'''
+
 from account import account
 
-accountlist = [[0],
-               [1],
-               [2],
-               [3],
-               [4],
-               [5],
-               [6],
-               [7],
-               [8],
-               [9]
-               ]
+for i in range (10):
+    accountlist = []
+    accountlist.append(account(id = i))
 
 
 class atm(account):
@@ -90,9 +82,8 @@ class atm(account):
         super().__init__()
         self.__id = id
     def mainMenu(self):
-        print("Main menu \n1: Check balance \n2: Withdraw \n3: Deposit \n4: Exit")
-    def accessID(self, id):
-        return accountlist[self.__id]
+        return "Main menu \n1: Check balance \n2: Withdraw \n3: Deposit \n4: Exit"
+
         
 
 def main1():
@@ -100,14 +91,22 @@ def main1():
     atmSim = atm(idInput)
     print(atmSim.mainMenu())
     choiceInput = eval(input("Enter a choice:" ))
-        
+    if choiceInput == 1:
+        print(atmSim.getBalance())
+        main1()
+    elif choiceInput == 2:
+        d = eval(input("Enter amount to withdraw: "))
+        atmSim.withdraw(d)
+        main1()
+    else:
+        None
 
 main1()
 
-'''
+
 
 # 13.3
-
+'''
 from random import randint
 
 # Makes the unspecified number of scores
@@ -136,6 +135,12 @@ def processScores():
     average = b / i
     print("The average is",average)
     infile.close()
-    
-
+makeScores()
 processScores()
+'''
+''' Results:
+Enter a filename: scores.txt
+There are 23 scores
+The total is  99
+The average is 4.304347826086956
+'''
