@@ -71,19 +71,35 @@ Filled? False
 # 12.3
 from account import account
 
-def creator():
-	creator1 = account()
-	creator1.setId(i)
-	creator1.setBalance(100)
+accountlist = [[0],
+               [1],
+               [2],
+               [3],
+               [4],
+               [5],
+               [6],
+               [7],
+               [8],
+               [9]
+               ]
 
-	print("ID: ",creator1.getId())
-	print("Balance: ",creator1.getBalance())
-	
-for i in range(0, 10):
-    creator()
+class atm(account):
+    def __init__(self, id):
+        super().__init__()
+        self.__id = id
+    def accessID(self, id):
+        return accountlist[self.__id]
+        print(r"Main menu \n1: Check balance \n2: Withdraw \n3: Deposit \n4: Exit")
 
-    
-
+def main1():
+    idInput = eval(input("Input your ID: "))
+    atmSim = atm(idInput)
+    print("Your ID is: ", atmSim.accessID(idInput))
 
 main1()
+
+
+    
+        
+
 # 13.3
